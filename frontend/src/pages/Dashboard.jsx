@@ -1,90 +1,90 @@
-import React from "react";
-import { Link } from "react-router-dom"; // <-- Add this import
+// Dashboard.jsx
 
 export default function Dashboard() {
-  const stats = [
-    { label: "Videos Analyzed", value: 47 },
-    { label: "Scripts Generated", value: 23 },
-    { label: "Avg Trend Score", value: "84%" },
-  ];
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-50 px-2">
-      <div className="w-full max-w-11xl bg-white rounded-5xl shadow-xl py-10 px-8 flex flex-col gap-10">
-        {/* Greetings and Plan */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div>
-            <h1 className="text-3xl font-bold text-blue-700 flex items-center gap-2">
-              Welcome back, vineet bhardwaj! <span className="text-2xl">👋</span>
-            </h1>
-            <p className="text-gray-500 mt-1">Ready to create your next viral hit?</p>
-          </div>
+    <div className="max-w-6xl mx-auto p-8">
+      <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+        Welcome back, Alex! <span>👋</span>
+      </h2>
+      <div className="flex-col md:flex-row flex gap-8">
+        {/* Quick Actions */}
+        <div className="flex-1 flex flex-col gap-5">
+          <ActionCard
+            icon="📊"
+            title="Analyze Video"
+            desc="Get AI insights on your content"
+          />
+          <ActionCard
+            icon="📝"
+            title="Generate Script"
+            desc="Create viral scripts with AI"
+          />
+          <ActionCard
+            icon="🔥"
+            title="View Trends"
+            desc="Discover what's going viral"
+          />
         </div>
-
-        {/* Actions + Stats */}
-        <div className="flex flex-col md:flex-row gap-10 w-full">
-          {/* Actions left */}
-          <div className="flex-1 flex flex-col gap-6">
-            <Link to="/analyze">
-              <button className="flex items-center justify-between w-full bg-blue-50 py-5 px-6 rounded-xl shadow hover:bg-blue-100 transition group">
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl">📊</span>
-                  <div>
-                    <div className="font-bold text-lg text-gray-700">Analyze Video</div>
-                    <div className="text-gray-500 text-sm">Get AI insights on your content</div>
-                  </div>
-                </div>
-                <span className="text-blue-700 font-bold text-2xl">47</span>
-              </button>
-            </Link>
-
-            <Link to="/generate-script">
-              <button className="flex items-center justify-between w-full bg-blue-50 py-5 px-6 rounded-xl shadow hover:bg-blue-100 transition group">
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl">📝</span>
-                  <div>
-                    <div className="font-bold text-lg text-gray-700">Generate Script</div>
-                    <div className="text-gray-500 text-sm">Create viral scripts with AI</div>
-                  </div>
-                </div>
-                <span className="text-blue-700 font-bold text-2xl">23</span>
-              </button>
-            </Link>
-
-            <Link to="/trends">
-              <button className="flex items-center justify-between w-full bg-blue-50 py-5 px-6 rounded-xl shadow hover:bg-blue-100 transition group">
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl">🔥</span>
-                  <div>
-                    <div className="font-bold text-lg text-gray-700">View Trends</div>
-                    <div className="text-gray-500 text-sm">Discover what's going viral</div>
-                  </div>
-                </div>
-                <span className="text-blue-700 font-bold text-2xl">84%</span>
-              </button>
-            </Link>
-          </div>
-
-          {/* Stats right */}
-          <div className="flex flex-col justify-between gap-6 w-full max-w-xs">
-            {stats.map(stat => (
-              <div
-                key={stat.label}
-                className="bg-blue-50 rounded-xl shadow text-center py-8"
-              >
-                <div className="text-3xl font-bold text-blue-700">{stat.value}</div>
-                <div className="text-gray-600 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Recent Activity */}
-        <div className="pt-4">
-          <h3 className="text-base font-semibold text-gray-700 mb-1">Recent Activity</h3>
-          <p className="text-gray-400 text-sm">No recent activity yet.</p>
+        {/* Your Performance */}
+        <div className="flex-1 flex flex-col gap-5 mt-8 md:mt-0">
+          <StatCard stat={47} desc="Videos Analyzed" />
+          <StatCard stat={23} desc="Scripts Generated" />
+          <StatCard stat="84%" desc="Avg Trend Score" />
         </div>
       </div>
+
+      {/* Recent Activity */}
+      <div className="mt-12">
+        <h3 className="text-lg font-bold text-gray-700 mb-4">Recent Activity</h3>
+        <div className="bg-white rounded-xl shadow p-0">
+          <RecentActivityItem
+            title="Product Launch Video"
+            date="July 25, 2025"
+            trendScore={82}
+          />
+          <RecentActivityItem
+            title="Behind the Scenes"
+            date="July 24, 2025"
+            trendScore={75}
+            border={false}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ActionCard({ icon, title, desc }) {
+  return (
+    <div className="bg-white rounded-lg shadow-md flex items-center gap-4 px-6 py-4 hover:shadow-lg transition-all group">
+      <span className="text-2xl">{icon}</span>
+      <div>
+        <div className="font-semibold text-md text-gray-800 group-hover:text-[#1db5be] transition">{title}</div>
+        <div className="text-sm text-gray-500">{desc}</div>
+      </div>
+    </div>
+  );
+}
+
+function StatCard({ stat, desc }) {
+  return (
+    <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+      <span className="text-3xl text-[#1db5be] font-bold">{stat}</span>
+      <span className="text-gray-700 mt-1">{desc}</span>
+    </div>
+  );
+}
+
+function RecentActivityItem({ title, date, trendScore, border = true }) {
+  return (
+    <div className={`flex items-center justify-between px-7 py-5 ${border?'border-b border-gray-100':''}`}>
+      <div>
+        <div className="font-semibold text-gray-800">{title}</div>
+        <div className="text-xs text-gray-500 mt-1">Analyzed • {date}</div>
+      </div>
+      <span className="bg-[#e8fbfb] text-[#1db5be] px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">
+        {trendScore}% Trend Score
+      </span>
     </div>
   );
 }

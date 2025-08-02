@@ -7,6 +7,7 @@ import ScriptGen from "./pages/ScriptGen";
 import Login from "./pages/Login";
 import Register from "./pages/Register"; // ✅ added Register import
 import useAuth from "./hooks/useAuth";
+import Trending from "./pages/Trending";
 
 function App() {
   const { user } = useAuth();
@@ -27,7 +28,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/analysis" element={<Analysis />} />
                 <Route path="/scriptgen" element={<ScriptGen />} />
-                <Route path="/trending" element={<TrendingPage />} />
+                <Route path="/trending" element={<Trending />} />
                 <Route path="*" element={<Navigate to="/dashboard" />} />
               </Routes>
             </MainLayout>
