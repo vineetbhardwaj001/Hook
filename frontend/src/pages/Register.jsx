@@ -49,7 +49,7 @@ export default function Register() {
             <input
               type="text"
               required
-              className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-sky-400"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -59,7 +59,7 @@ export default function Register() {
             <input
               type="email"
               required
-              className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-sky-400"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -69,7 +69,7 @@ export default function Register() {
             <input
               type="password"
               required
-              className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-sky-400"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
