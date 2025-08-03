@@ -88,7 +88,7 @@ export default function Register() {
             Already have an account?{" "}
             <button
               type="button"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/")}
               className="text-sky-600 hover:underline font-medium"
             >
               Log in
