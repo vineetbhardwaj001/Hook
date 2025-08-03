@@ -15,7 +15,7 @@ function App() {
   return (
     <Routes>
       {/* Public Auth Routes */}
-      <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
+      <Route path="/" element={<AuthLayout><Login /></AuthLayout>} />
       <Route path="/register" element={<AuthLayout><Register /></AuthLayout>} />
 
       {/* Protected Routes */}
