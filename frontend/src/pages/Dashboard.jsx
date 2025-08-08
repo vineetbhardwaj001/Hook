@@ -1,6 +1,9 @@
 // Dashboard.jsx
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
+  const navigate = useNavigate(); // <-- Add this
+
   return (
     <div className="max-w-6xl mx-auto p-8">
       <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
@@ -9,22 +12,31 @@ export default function Dashboard() {
       <div className="flex-col md:flex-row flex gap-8">
         {/* Quick Actions */}
         <div className="flex-1 flex flex-col gap-5">
-          <ActionCard
-            icon="📊"
-            title="Analyze Video"
-            desc="Get AI insights on your content"
-          />
-          <ActionCard
-            icon="📝"
-            title="Generate Script"
-            desc="Create viral scripts with AI"
-          />
-          <ActionCard
-            icon="🔥"
-            title="View Trends"
-            desc="Discover what's going viral"
-          />
-        </div>
+  <Link to="/analysis">
+    <ActionCard
+      icon="📊"
+      title="Analyze Video"
+      desc="Get AI insights on your content"
+    />
+  </Link>
+
+  <Link to="/scriptgen">
+    <ActionCard
+      icon="📝"
+      title="Generate Script"
+      desc="Create viral scripts with AI"
+    />
+  </Link>
+
+  <Link to="/trending">
+    <ActionCard
+      icon="🔥"
+      title="View Trends"
+      desc="Discover what's going viral"
+    />
+  </Link>
+</div>
+
         {/* Your Performance */}
         <div className="flex-1 flex flex-col gap-5 mt-8 md:mt-0">
           <StatCard stat={47} desc="Videos Analyzed" />
